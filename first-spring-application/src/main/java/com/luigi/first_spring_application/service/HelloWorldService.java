@@ -21,7 +21,7 @@ Melhora a organização do código, separando a lógica de negócio da camada de
 @Service
 public class HelloWorldService {
     /*
-    O que acontece quando alguém acessa http://localhost:8080/hello-world?
+    O que acontece quando alguém acessa http://localhost:8080/hello-world
     A requisição chega no Controller (HelloWorldController).
     O método helloWorld() chama helloWorldService.HelloWorld("Luigi").
     O serviço retorna "Hello World! Luigi".

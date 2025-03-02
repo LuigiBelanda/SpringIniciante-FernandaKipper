@@ -1,6 +1,7 @@
 package com.luigi.first_spring_application.controller;
 
 import com.luigi.first_spring_application.service.HelloWorldService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -62,12 +63,21 @@ public class HelloWorldController {
     private HelloWorldService helloWorldService; → Declara a dependência do serviço.
     public HelloWorldController(HelloWorldService helloWorldService) → O Spring injeta automaticamente a instância do serviço via construtor.
     A injeção de dependência melhora a manutenção, reduz o acoplamento e facilita os testes.
-    */
+
     private HelloWorldService helloWorldService;
 
     public HelloWorldController(HelloWorldService helloWorldService) {
         this.helloWorldService = helloWorldService;
     }
+    */
+
+    /*
+    A annotation @Autowired é usada no Spring Boot para injeção automática de dependências. Quando aplicada a
+    um campo, método ou construtor, o Spring automaticamente injeta um bean
+    (um objeto gerenciado pelo contêiner do Spring) sem que você precise criá-lo manualmente.
+    */
+    @Autowired
+    private HelloWorldService helloWorldService;
 
     // @GetMapping("/get")
     @GetMapping
