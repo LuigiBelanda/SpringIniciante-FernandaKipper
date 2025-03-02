@@ -1,5 +1,6 @@
 package com.luigi.first_spring_application.controller;
 
+import com.luigi.first_spring_application.service.HelloWorldService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,9 +44,34 @@ quem vai responder essa requisição é o meu método helloWorld()
 @RequestMapping("/hello-world")
 public class HelloWorldController {
 
+    /*
+    Aqui, a classe HelloWorldController depende de um serviço chamado HelloWorldService para funcionar.
+    Essa dependência é resolvida através do construtor da classe, um conceito
+    fundamental da injeção de dependência no Spring.
+
+    A injeção de dependência (Dependency Injection - DI) é um padrão de design onde um
+    objeto recebe suas dependências externamente, em vez de criá-las dentro dele.
+    Isso melhora a modularidade, facilita a manutenção e permite a realização de testes unitários com mais facilidade.
+
+    No seu código:
+    A classe HelloWorldController precisa de uma instância de HelloWorldService.
+    Ao invés de criar essa instância manualmente, o Spring Boot injeta automaticamente o serviço na classe através do construtor.
+    Isso funciona porque HelloWorldService provavelmente está anotado com @Service ou @Component, permitindo que o Spring gerencie essa dependência.
+
+    Resumo:
+    private HelloWorldService helloWorldService; → Declara a dependência do serviço.
+    public HelloWorldController(HelloWorldService helloWorldService) → O Spring injeta automaticamente a instância do serviço via construtor.
+    A injeção de dependência melhora a manutenção, reduz o acoplamento e facilita os testes.
+    */
+    private HelloWorldService helloWorldService;
+
+    public HelloWorldController(HelloWorldService helloWorldService) {
+        this.helloWorldService = helloWorldService;
+    }
+
     // @GetMapping("/get")
     @GetMapping
     public String helloWorld() {
-        return "Hello World";
+        return helloWorldService.HelloWorld("Luigi");
     }
 }
