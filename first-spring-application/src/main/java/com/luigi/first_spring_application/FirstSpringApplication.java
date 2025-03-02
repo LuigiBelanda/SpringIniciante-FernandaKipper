@@ -2,6 +2,7 @@ package com.luigi.first_spring_application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Profile;
 
 /*
 Uma annotation em Java é um recurso que permite adicionar metadata ao código, ou seja, informações adicionais que podem ser usadas pelo compilador, por frameworks ou até mesmo em tempo de execução. As annotations começam com @ e podem ser aplicadas a classes, métodos, variáveis, parâmetros, entre outros.
@@ -26,6 +27,13 @@ A annotation @SpringBootApplication marca a classe principal da aplicação e fa
 */
 
 @SpringBootApplication
+/*
+@Profile("dev")
+
+A annotation @Profile("dev") e a configuração spring.profiles.active=dev são usadas para gerenciar perfis
+(profiles) no Spring Boot. Perfis permitem definir diferentes configurações para diferentes ambientes
+(como desenvolvimento, teste e produção), facilitando a adaptação do comportamento da aplicação conforme necessário.
+*/
 public class FirstSpringApplication {
 
 	public static void main(String[] args) {
