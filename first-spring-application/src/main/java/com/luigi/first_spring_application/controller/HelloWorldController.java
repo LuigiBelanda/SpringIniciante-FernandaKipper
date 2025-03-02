@@ -1,10 +1,9 @@
 package com.luigi.first_spring_application.controller;
 
+import com.luigi.first_spring_application.domain.User;
 import com.luigi.first_spring_application.service.HelloWorldService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /*
 O que é @RestController?
@@ -83,5 +82,12 @@ public class HelloWorldController {
     @GetMapping
     public String helloWorld() {
         return helloWorldService.HelloWorld("Luigi");
+    }
+
+    @PostMapping("/{id}")
+    public String hellWorldPost(@RequestBody User body,
+                                @PathVariable("id") String id,
+                                @RequestParam(value = "filter", defaultValue = "nenhum") String filter) {
+        return "Hello World " + body.getName() + id + filter;
     }
 }

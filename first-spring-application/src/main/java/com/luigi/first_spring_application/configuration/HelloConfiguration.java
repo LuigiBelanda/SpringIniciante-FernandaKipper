@@ -29,7 +29,7 @@ Resumo
 @Configuration → Define uma classe como um arquivo de configuração do Spring.
 @Bean → Cria um bean gerenciado manualmente, útil para classes de bibliotecas externas.
 Alternativa ao @Component, mas com mais controle sobre a instância criada.
-*/
+
 @Configuration
 public class HelloConfiguration {
     @Bean
@@ -37,3 +37,4 @@ public class HelloConfiguration {
         return new SDAWS();
     }
 }
+*/
